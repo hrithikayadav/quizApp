@@ -1,0 +1,103 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.main-container{
+  margin:auto;
+  margin-top:10vh;
+  width:60%;
+}
+.question-container{
+  text-align: center;
+  padding:10px;
+}
+
+.questionCounterContainer{
+  padding:10px;
+  text-align: right;
+}
+
+.AnswerOptionsLabel{
+  padding:5px;
+}
+
+.AnswerOptionsContainer {
+  display:block;
+  
+  height: 60px;
+  
+  margin: 3px;
+  text-align: left;
+  background-color: aliceblue;
+  
+}
+
+.btn {
+  margin-right:20px;
+}
+
+.FormComponent{
+ 
+  width: 60%;
+	height: 80%;
+	
+	
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+  	
+  margin: auto;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.FormComponent label{
+  display:block;
+  margin:0 0 10px;
+  color:gray;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+
+}
+.FormComponent label input,.FormComponent label select{
+  outline: none;
+      
+      background: rgb(226, 224, 224);
+      width: 100%;
+      border: 0;
+      border-radius: 4px;
+     
+      padding: 12px 20px;
+      color: gray;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: bold;
+      
+}
+
+.FormComponent .btn{
+  outline: none;
+  width: 100%;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px 20px;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: bold;
+  line-height: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+}
