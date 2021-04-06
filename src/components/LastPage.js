@@ -36,7 +36,7 @@ function LastPage(props) {
     
     const ids = AllSelectedoptions.map(o => o.id);
     //let result = AllSelectedoptions.filter(o1 => data.some(o2 => o1.id === o2.id));
-    console.log("Props LP",props.selectedOptions)
+    //console.log("Props LP",props.selectedOptions)
     const totalscore=data.length;
     
     console.log("Data",data);
@@ -52,7 +52,7 @@ function LastPage(props) {
     const calculateScore=()=>{
         let scored=0;
         data.map((e,i)=>{
-            console.log(renderResult(e),e.answer)
+            //console.log(renderResult(e),e.answer)
             if(renderResult(e)===e.answer){
                 scored=scored+1;
                 
