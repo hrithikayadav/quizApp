@@ -8,7 +8,7 @@ function AnswerOptions(props) {
 
   let clickHandler = (ques, ans) => {
    
-    console.log("ch")
+    //console.log("ch")
     setSelectedOption(props.option);
     
     let dataArray =JSON.parse(JSON.stringify(props.selectedOptions));
@@ -16,7 +16,7 @@ function AnswerOptions(props) {
     if (index > -1) {// Value present already -> replace
       dataArray[index].answer = ans;
       
-      console.log("ii")
+      //console.log("ii")
     }
     else {
       dataArray.push({ quesKey: ques, answer: ans });
@@ -26,8 +26,8 @@ function AnswerOptions(props) {
 
   let getCurrentSelection = (ques) => {
     //debugger
-    console.log("gc")
-    console.log("---------------------------")
+    //console.log("gc")
+    //console.log("---------------------------")
     let index = props.selectedOptions.findIndex((el) => { return el.quesKey === ques });
     if (index > -1) {
       let currAns = props.selectedOptions[index].answer;
