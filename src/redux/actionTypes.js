@@ -1,2 +1,3 @@
 
 export const SAVE_SELECTED_OPTION = 'SAVE_SELECTED_OPTION';
+export const RESET_QUIZ ='RESET_QUIZ'

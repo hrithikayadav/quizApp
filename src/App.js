@@ -6,7 +6,11 @@ import { Link } from 'react-router-dom'
 import Questions from './components/Questions'
 import QuestionCount from './components/QuestionCount';
 import AnswerOptions from './components/AnswerOptions'
-import LastPage from './components/LastPage'
+import LastPage from './components/LastPage';
+// import one from '../src/one.jpg'
+// import dotted from '../src/dotted.png'
+// import yellowcircle from '../src/yellowcircle.png'
+// import bluecircle from '../src/bluecircle.png'
 
 export default class AppComponent extends Component {
   state = {
@@ -15,11 +19,8 @@ export default class AppComponent extends Component {
     options: [],
     previouslySelectedAnswer: '',
     disabled: true,
+    
   };
-
-  // handleAnswerSelected(event) {
-  //   this.setUserAnswer(event.currentTarget.value);
-  // }
 
   loadQuiz = () => {
 
@@ -64,15 +65,10 @@ export default class AppComponent extends Component {
     let previouslySavedAnswer = this.getPreviouslySavedAnswer();
     this.setState({
       currentQuestion: this.state.currentQuestion - 1,
-      previouslySelectedAnswer: previouslySavedAnswer[0].answer
+      //previouslySelectedAnswer: previouslySavedAnswer[0].answer
       // selectedAnswer:[this.state.selectedAnswer]
     })
   }
-
-  // clickedOptionHandler=(option)=>{
-  //   // console.log(option)
-  //   this.setState({selectedOption:option})
-  // }
 
   getPreviouslySavedAnswer() {
     let returnData = this.props.selectedOptions.filter((element) => {
@@ -81,43 +77,53 @@ export default class AppComponent extends Component {
     return returnData;
   }
 
+
   render() {
     let { questions, options, id, answer, currentQuestion, previouslySelectedAnswer } = this.state;
     console.log('ANS---', this.state.answer)
     return (
       <Router>
         <Route exact path="/">
-          <div className="container main-container">
-            <Questions questions={questions} />
-            <QuestionCount currentQuestion={currentQuestion} id={id} />
+        
+          <div className="container" id=" bodyContainer">
+            {/* <h1 className="heading">Weekly Quiz</h1> */}
 
-            {
-              options.map((option, index) => {
-                return <AnswerOptions
-                  key={index}
-                  currentQuestion={currentQuestion}
-                  questions={questions}
-                  option={option}
-                  answer={answer}
-                  previouslySelectedAnswer={previouslySelectedAnswer}
-                // onClick={this.clickHandler(option)}
-                // checked={this.state.selectedOption === {option}}
-                // change={(a)=>this.change(a)}
-                // click={()=>this.clickedOptionHandler(option)}
+            <div className="container main-container">
+              <div className="container questionContainer">
+                <Questions questions={questions} />
+              </div>
+              
+              <div className="container Optionscontainer">
 
-                />
-              })
-            }
+              
+                <QuestionCount currentQuestion={currentQuestion} id={id} />
+                <div class="AllOptionsContainer">
+                  {
+                    options.map((option, index) => {
+                      return <AnswerOptions
+                        key={index}
+                        currentQuestion={currentQuestion}
+                        questions={questions}
+                        option={option}
+                        answer={answer}
+                        previouslySelectedAnswer={previouslySelectedAnswer}
+                        
 
-            {currentQuestion > 0 && (
-              <button type="button" className="btn btn-outline-warning" onClick={this.prevQuestionHandler}>Previous</button>)}
+                      />
+                    })
+                  }
+                </div>
+                {currentQuestion > 0 && (
+                  <button type="button" className="prevBtn btn btn-outline-warning" onClick={this.prevQuestionHandler}>Previous</button>)}
 
-            {currentQuestion < data.length - 1 && (
-              <button type="button" className="btn btn-outline-warning" onClick={this.nextQuestionHandler} >Next</button>)}
+                {currentQuestion < data.length - 1 && (
+                  <button type="button" className="nextBtn btn btn-outline-warning" onClick={this.nextQuestionHandler} >Next</button>)}
 
-            {currentQuestion === data.length - 1 && (
-              <Link to="/info"> <button type="button" className="btn btn-outline-warning">Finish Quiz</button></Link>
-            )}
+                {currentQuestion === data.length - 1 && (
+                  <Link to="/info"> <button type="button" className="finishBtn btn btn-outline-warning">Finish Quiz</button></Link>
+                )}
+              </div>
+            </div>
           </div>
         </Route>
         <Route exact path="/info" component={Form} />
